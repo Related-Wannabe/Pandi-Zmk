@@ -25,7 +25,16 @@
         };
     };
 };
-
+/ {
+combos {
+compatible = "zmk,combos";
+combo_esc {
+timeout-ms = <50>;
+key-positions = <16 17 18>;
+bindings = <&kp ENTER>;
+    };
+  };
+};
 / {
     macros {
         SECT: SECT {
