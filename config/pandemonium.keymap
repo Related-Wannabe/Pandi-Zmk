@@ -25,32 +25,7 @@
         };
     };
 };
-/ {
-    combos {
-        compatible = "zmk,combos";
 
-        enter {
-            bindings = <&kp ENTER>;
-            key-positions = <16 17 18>;
-        };
-
-        Tab {
-            bindings = <&kp TAB>;
-            key-positions = <11 12 13>;
-        };
-
-        Word_Right {
-            bindings = <&kp LC(RIGHT)>;
-            key-positions = <13 12>;
-            layers = <1>;
-        };
-
-        Word_Left {
-            bindings = <&kp LC(LEFT)>;
-            key-positions = <11 12>;
-            layers = <1>;
-        };
-    };
 / {
     macros {
         SECT: SECT {
