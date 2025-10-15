@@ -32,11 +32,29 @@
             bindings = <&kp Q>, <&kp ESCAPE>;
         };
 
-        CTAB: CTAB {
+        C_Close: C_Close {
             compatible = "zmk,behavior-tap-dance";
-            label = "CTAB";
+            label = "C_CLOSE";
             #binding-cells = <0>;
             bindings = <&kp W>, <&kp LC(W)>;
+        };
+
+        Dot_Qmark: Dot_Qmark {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DOT_QMARK";
+            bindings = <&kp PERIOD>, <&kp QMARK>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        Slsh_GT: Slsh_GT {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SLSH_GT";
+            bindings = <&kp SLASH>, <&kp GT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
         };
     };
 };
@@ -63,6 +81,16 @@
             key-positions = <20 21>;
             layers = <1>;
         };
+
+        Lpare {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <1 2>;
+        };
+
+        Rpare {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <8 7>;
+        };
     };
 
     keymap {
@@ -70,19 +98,19 @@
 
         ALPHA {
             bindings = <
-&Q_ESC       &CTAB        &kp F         &kp P            &kp B   &kp J        &kp L  &kp U            &kp Y        &kp APOS
-&kp A        &hm LCTRL R  &kp S         &kp T            &kp G   &kp M        &kp N  &hm RIGHT_ALT E  &hm RCTRL I  &kp O
-&hm LC(X) X  &hm LC(C) C  &hm LC(D) D   &hm LC(V) V      &kp Z   &kp K        &kp H  &kp COMMA                     &kp DOT
-&lt 1 LGUI                &lt 1 ESCAPE  &mt LSHIFT BSPC  &trans  &lt 3 SPACE         &lt 1 DELETE
+&Q_ESC              &C_Close     &kp F         &kp P            &kp B   &kp J        &kp L  &kp U            &kp Y        &kp APOS
+&kp A               &hm LCTRL R  &kp S         &kp T            &kp G   &kp M        &kp N  &hm RIGHT_ALT E  &hm RCTRL I  &kp O
+&hm LC(LEFT_GUI) X  &hm LC(C) C  &hm LC(D) D   &hm LC(V) V      &kp Z   &kp K        &kp H  &kp COMMA                     &Dot_Qmark
+&lt 1 LGUI                       &lt 1 ESCAPE  &mt LSHIFT BSPC  &trans  &lt 3 SPACE         &Slsh_GT
             >;
         };
 
         NUMFN {
             bindings = <
-&bootloader   &trans        &trans  &trans  &trans  &trans  &trans        &trans        &trans        &out OUT_TOG
-&kp C_PP      &trans        &trans  &trans  &trans  &trans  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&kp C_VOL_DN  &kp C_VOL_UP  &none   &trans  &trans  &trans  &bt BT_CLR    &trans                      &bt BT_CLR_ALL
-&trans                      &trans  &trans  &trans  &trans                &trans
+&bootloader   &none         &none  &none  &none  &none  &none  &none  &none  &out OUT_TOG
+&none         &none         &none  &none  &none  &none  &none  &none  &none  &none
+&kp C_VOL_DN  &kp C_VOL_UP  &none  &none  &none  &none  &none  &none         &bt BT_CLR_ALL
+&none                       &none  &none  &none  &none         &none
             >;
         };
 
@@ -97,7 +125,7 @@
 
         NAVVL {
             bindings = <
-&none     &kp LPAR  &kp UP    &kp RPAR   &trans      &kp TILDE  &kp N7  &kp N8  &kp N9  &kp BSLH
+&none     &none     &kp UP    &none      &trans      &kp TILDE  &kp N7  &kp N8  &kp N9  &kp BSLH
 &kp SEMI  &kp LEFT  &kp DOWN  &kp RIGHT  &trans      &kp MINUS  &kp N1  &kp N2  &kp N3  &kp N0
 &none     &none     &none     &none      &caps_word  &kp EQUAL  &kp N4  &kp N5          &kp N6
 &trans              &trans    &trans     &trans      &trans             &trans
