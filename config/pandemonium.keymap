@@ -92,6 +92,11 @@
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <8 7>;
         };
+
+        Reset {
+            bindings = <&sys_reset>;
+            key-positions = <0 29 28 9>;
+        };
     };
 
     keymap {
@@ -108,7 +113,7 @@
 
         NUMFN {
             bindings = <
-&bootloader   &none         &none         &none         &none  &none  &none  &none  &none  &out OUT_TOG
+&soft_off     &none         &none         &none         &none  &none  &none  &none  &none  &out OUT_TOG
 &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &none  &none  &none  &none  &none  &none
 &kp C_VOL_DN  &kp C_VOL_UP  &none         &none         &none  &none  &none  &none         &bt BT_CLR_ALL
 &none                       &trans        &none         &none  &none         &none
